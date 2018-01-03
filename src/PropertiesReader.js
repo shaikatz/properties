@@ -278,18 +278,7 @@
       */
      PropertiesReader.prototype._stringifyProperties = function() {
        var lines = [];
-       var section = null;
        this.each(function (key, value) {
-           var tokens = key.split('.');
-           if (tokens.length > 1) {
-             if (section !== tokens[0]) {
-               section = tokens[0];
-               lines.push('[' + section + ']');
-             }
-             key = tokens.slice(1).join('.');
-           } else {
-             section = null;
-           }
            lines.push(key + '=' + value);
        });
        return lines;
